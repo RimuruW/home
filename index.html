@@ -3,400 +3,428 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Qingxu (RimuruW)</title>
-    <meta http-equiv="x-dns-prefetch-control " content="on">
+    <title>Qingxu · politics, economics, and code</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
-    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
     <link href="https://blog.linioi.com/favicon.ico" rel="shortcut icon" type="image/ico">
     <link href="https://blog.linioi.com/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
-    <link href="https://blog.linioi.com/android-chrome-192x192.png" rel="icon" type="image/png" sizes="192x192">
     <link href="https://blog.linioi.com/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32">
     <link href="https://blog.linioi.com/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16">
-    <link href="https://blog.linioi.com/safari-pinned-tab.svg" rel="mask-icon" color="#fcfcfc">
-    <meta content="#ebedee" name="theme-color">
-    <meta content="telephone=no" name="format-detection">
-    <meta name="description" content="Qingxu's Home —— Qingxu (@RimuruW) 的个人主页">
-    <meta content="no-transform" http-equiv="Cache-Control">
-    <meta content="no-siteapp" http-equiv="Cache-Control">
-    <meta property="og:title" content="Qingxu's Home (@RimuruW)">
-    <meta property="og:type" content="Website">
+
+    <meta name="theme-color" content="#f5f4ed" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141413" media="(prefers-color-scheme: dark)">
+    <meta name="format-detection" content="telephone=no">
+
+    <meta name="description"
+        content="Qingxu (@RimuruW), thinking about governance and social order, with the methods of economics and the habits of open source.">
+    <meta name="author" content="Qingxu">
+
+    <meta property="og:title" content="Qingxu · politics, economics, and code">
+    <meta property="og:type" content="profile">
     <meta property="og:url" content="https://linioi.com/">
-    <meta property="og:image" content="https://blog.linioi.com/android-chrome-192x192.png">
-    <meta property="og:description" content="Qingxu's Home —— Qingxu (@RimuruW) 的主页">
+    <meta property="og:image" content="https://blog.linioi.com/hotlink-ok/images/avatar.jpg">
+    <meta property="og:description"
+        content="Thinking about governance and social order, with the methods of economics and the habits of open source.">
     <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="@RimuruW">
     <link rel="canonical" href="https://linioi.com/">
+
     <style>
-        html {
-            line-height: 1.15;
-            -webkit-text-size-adjust: 100%
+        /* ─────────────── design tokens · kami parchment + ink-blue ─────────────── */
+        :root {
+            /* warm parchment palette */
+            --paper: #f5f4ed;
+            --ivory: #faf9f5;
+            --sand: #e8e6dc;
+            --ink: #141413;
+            /* warm grays: yellow-brown undertone, never cool blue-gray */
+            --ink-secondary: #3d3d3a;
+            --ink-soft: #504e49;
+            --ink-faint: #6b6a64;
+            --line: #e8e6dc;
+            --line-soft: #e5e3d8;
+            /* single accent: ink-blue, kept under ~5% of the surface */
+            --accent: #1b365d;
+            --accent-tint: #e4ecf5;
+
+            --serif: Charter, "Source Serif 4", "Iowan Old Style", Palatino, Georgia, "Times New Roman", "Songti SC", "STSong", serif;
+            --mono: "JetBrains Mono", "SF Mono", "Fira Code", Consolas, Monaco, "Songti SC", monospace;
+
+            --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
         }
 
-        body,
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --paper: #141413;
+                --ivory: #1c1c1a;
+                --sand: #2a2a27;
+                --ink: #ece9e1;
+                --ink-secondary: #c7c3b8;
+                --ink-soft: #a8a399;
+                --ink-faint: #807c72;
+                --line: #2a2a27;
+                --line-soft: #26261f;
+                --accent: #6f9bce;
+                --accent-tint: #21304a;
+            }
+        }
+
+        /* ─────────────── reset ─────────────── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
         html {
-            height: 100%;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
         }
 
         body {
             margin: 0;
-            color: #7c8891;
-            font: 16px/22px -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
-            background: #ebedee;
-            padding: 50px;
-            overflow: hidden
+            min-height: 100svh;
+            color: var(--ink);
+            background-color: var(--paper);
+            font-family: var(--serif);
+            /* kami: one serif per page, weight locked at 500, no bold/italic */
+            font-weight: 400;
+            font-size: clamp(16px, 0.9vw + 13px, 18px);
+            line-height: 1.55;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
         }
 
         a {
-            background-color: transparent
+            color: inherit;
+            text-decoration: none;
         }
 
         img {
-            border-style: none
-        }
-
-        [hidden] {
-            display: none
-        }
-
-        @media (max-width:768px) {
-            body {
-                padding: 30px
-            }
-        }
-
-        @media (max-width:420px) {
-            body {
-                padding: 10px
-            }
-        }
-
-        h1 {
-            margin-top: 10px;
-            margin-bottom: 10px;
-            line-height: 30px;
-            font-size: 24px
-        }
-
-        .wrapper {
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: center;
-            -webkit-justify-content: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -webkit-align-items: center;
-            -ms-flex-align: center;
-            align-items: center;
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-            -webkit-flex-direction: column;
-            -ms-flex-direction: column;
-            flex-direction: column;
-            height: 100%
-        }
-
-        .container {
-            opacity: 0;
-            transition: opacity 1s ease, -webkit-transform 1s ease;
-            -webkit-transition: opacity 1s ease, -webkit-transform 1s ease;
-            -o-transition: transform 1s ease, opacity 1s ease;
-            transition: transform 1s ease, opacity 1s ease;
-            transition: transform 1s ease, opacity 1s ease, -webkit-transform 1s ease;
-            -webkit-transform: translateY(-40px);
-            -ms-transform: translateY(-40px);
-            transform: translateY(-40px);
-            position: relative;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-            width: 80%;
-            background: #fff;
-            -webkit-border-radius: 10px;
-            border-radius: 10px;
-            overflow: hidden;
-            max-width: 700px;
-            -webkit-box-shadow: 0 8px 20px rgba(0, 0, 0, .06);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, .06)
-        }
-
-        @media (max-width:768px) {
-            .container {
-                width: 100%;
-                min-width: 290px
-            }
-        }
-
-        .container>div {
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-            padding: 55px 34px
-        }
-
-        @media (max-width:420px) {
-            .container>div {
-                padding: 40px 24.7px !important
-            }
-        }
-
-        .profile {
-            position: absolute;
-            text-align: center;
-            width: 31.2%;
-            color: #fff;
-            background: rgba(0, 0, 0, .6) url(https://cdn.jsdelivr.net/gh/RimuruW/PicGoBed/blog/banner.png) no-repeat top;
-            text-shadow: 0 2px 2px rgba(0, 0, 0, .6)
-        }
-
-        @media (min-width:671px) {
-            .profile {
-                height: 100%
-            }
-        }
-
-        .profile .meta {
-            position: relative;
-            z-index: 1
-        }
-
-        .profile .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: 100%;
-            height: 100%;
-            background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, .6)), to(rgba(0, 0, 0, .3)));
-            background: -o-linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .3));
-            background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .3))
-        }
-
-        .profile .avatar {
-            width: 50%;
-            -webkit-border-radius: 50%;
-            border-radius: 50%;
-            overflow: hidden;
-            -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, .5);
-            box-shadow: 0 0 6px rgba(0, 0, 0, .5)
-        }
-
-        .profile .position {
-            font-size: 13px
-        }
-
-        .portfolio {
-            margin-left: 31.2%;
-            padding: 50px
-        }
-
-        .portfolio p {
-            margin-top: 0;
-            line-height: 28px
-        }
-
-        .portfolio a {
-            color: #0070ff;
-            text-decoration: none
-        }
-
-        .tooltip {
-            position: relative
-        }
-
-        .tooltip:focus::after,
-        .tooltip:hover::after {
-            opacity: 1;
-            -webkit-transform: translate(-50%, -.2rem);
-            -ms-transform: translate(-50%, -.2rem);
-            transform: translate(-50%, -.2rem)
-        }
-
-        .tooltip::after {
-            background: rgba(48, 55, 66, .6);
-            -webkit-border-radius: 4px;
-            border-radius: 4px;
-            color: #fafafa;
-            content: attr(title);
             display: block;
-            margin-top: 4px;
-            font-size: 14px;
-            max-width: 300px;
+            max-width: 100%;
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: var(--paper);
+        }
+
+        /* ─────────────── layout ─────────────── */
+        .page {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: clamp(3.5rem, 9vh, 7rem) clamp(1.5rem, 6vw, 3rem) 4rem;
+        }
+
+        /* staggered fade-up entrance */
+        .reveal {
             opacity: 0;
-            overflow: hidden;
-            padding: 3px 6px;
-            pointer-events: none;
-            position: absolute;
-            -o-text-overflow: ellipsis;
-            text-overflow: ellipsis;
-            -webkit-transform: translate(-50%, .4rem);
-            -ms-transform: translate(-50%, .4rem);
-            transform: translate(-50%, .4rem);
-            -webkit-transition: opacity .2s, -webkit-transform .2s;
-            transition: opacity .2s, -webkit-transform .2s;
-            -o-transition: opacity .2s, transform .2s;
-            transition: opacity .2s, transform .2s;
-            transition: opacity .2s, transform .2s, -webkit-transform .2s;
-            white-space: pre;
-            z-index: 300;
-            left: 50%;
-            bottom: auto;
-            top: 100%
+            transform: translateY(16px);
+            transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
         }
 
-        .social {
-            padding-top: 20px;
-            text-align: center
-        }
-
-        .social i {
-            margin: 0 10px
-        }
-
-        .social a {
-            color: #7c8891
-        }
-
-        @media (max-width:670px) {
-            .profile {
-                position: relative;
-                width: 100%;
-                background-size: cover
-            }
-
-            .profile h1 {
-                font-size: 20px;
-                margin-bottom: 5px
-            }
-
-            .avatar {
-                width: 80px !important
-            }
-
-            .portfolio {
-                margin: 0
-            }
-        }
-
-        .footer {
-            transition: opacity 1s ease, -webkit-transform 1s ease;
-            -webkit-transition: opacity 1s ease, -webkit-transform 1s ease;
-            -o-transition: transform 1s ease, opacity 1s ease;
-            transition: transform 1s ease, opacity 1s ease;
-            transition: transform 1s ease, opacity 1s ease, -webkit-transform 1s ease;
-            -webkit-transform: translateY(40px);
-            -ms-transform: translateY(40px);
-            transform: translateY(40px);
-            color: #bfc4c7;
-            padding: 20px 0;
-            opacity: 0
-        }
-
-        .footer i {
-            margin: 0 6px
-        }
-
-        .text-center {
-            text-align: center
-        }
-
-        .label {
-            display: normal;
-            color: #fbfbfb;
-            text-decoration: none;
-            font-size: 13px;
-            padding: 4px 8px;
-            -webkit-border-radius: 3px;
-            border-radius: 3px;
-            background: #c5d1d3
-        }
-
-        .fadeIn {
+        .reveal.in {
             opacity: 1;
-            -webkit-transform: translateY(0);
-            -ms-transform: translateY(0);
-            transform: translateY(0)
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+
+        /* ─────────────── header ─────────────── */
+        header {
+            display: flex;
+            align-items: center;
+            gap: clamp(1rem, 4vw, 1.5rem);
+            margin-bottom: 2.8rem;
+        }
+
+        .avatar {
+            width: clamp(60px, 14vw, 78px);
+            height: clamp(60px, 14vw, 78px);
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            /* kami: depth via whisper ring, no hard drop shadow */
+            box-shadow: 0 0 0 1px var(--line), 0 1px 14px rgba(20, 20, 19, 0.10);
+        }
+
+        .id .name {
+            font-size: clamp(1.8rem, 5vw, 2.35rem);
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            line-height: 1.15;
+            margin: 0;
+            color: var(--ink);
+        }
+
+        .id .handle {
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            color: var(--ink-faint);
+            margin-top: 0.4rem;
+            letter-spacing: 0.02em;
+        }
+
+        .id .handle .sep {
+            color: var(--accent);
+            margin: 0 0.5em;
+        }
+
+        /* ─────────────── lede + intro ─────────────── */
+        .lede {
+            font-size: clamp(1.35rem, 3.6vw, 1.7rem);
+            font-weight: 500;
+            line-height: 1.4;
+            color: var(--ink);
+            margin: 0 0 1.4rem;
+            text-wrap: balance;
+        }
+
+        .lede .hl {
+            color: var(--accent);
+        }
+
+        .intro {
+            color: var(--ink-soft);
+            max-width: 56ch;
+            margin: 0 0 3rem;
+            line-height: 1.62;
+        }
+
+        .intro a {
+            color: var(--accent);
+            border-bottom: 1px solid var(--accent-tint);
+            transition: border-color 0.25s var(--ease);
+        }
+
+        .intro a:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        /* ─────────────── facets ─────────────── */
+        .facets {
+            display: grid;
+            gap: 1.7rem 2.6rem;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            margin: 0 0 3.2rem;
+            padding: 2.2rem 0 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .facet h2 {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            margin: 0 0 0.65rem;
+        }
+
+        .facet p {
+            margin: 0;
+            color: var(--ink-soft);
+            font-size: 0.98rem;
+            line-height: 1.55;
+        }
+
+        .facet .key {
+            color: var(--ink);
+        }
+
+        .facet .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 0.5rem;
+            margin-top: 0.7rem;
+        }
+
+        .tag {
+            font-size: 0.78rem;
+            font-family: var(--mono);
+            color: var(--accent);
+            /* kami: tag background solid hex, never rgba */
+            background: var(--accent-tint);
+            border-radius: 999px;
+            padding: 0.2rem 0.7rem;
+            letter-spacing: 0.01em;
+        }
+
+        /* ─────────────── links ─────────────── */
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            padding-top: 2.2rem;
+            border-top: 1px solid var(--line);
+        }
+
+        .link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-size: 0.92rem;
+            color: var(--ink-secondary);
+            padding: 0.5rem 0.95rem 0.5rem 0.78rem;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: var(--ivory);
+            transition: transform 0.2s var(--ease), border-color 0.2s var(--ease), color 0.2s var(--ease);
+        }
+
+        .link svg {
+            width: 17px;
+            height: 17px;
+            flex-shrink: 0;
+        }
+
+        .link:hover {
+            transform: translateY(-2px);
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        /* ─────────────── footer ─────────────── */
+        footer {
+            margin-top: 3.6rem;
+            font-size: 0.92rem;
+            color: var(--ink-faint);
+            letter-spacing: 0.02em;
+        }
+
+        footer .zh {
+            /* CJK serif fallback so the closing line renders consistently */
+            font-family: "Songti SC", "STSong", "Source Han Serif SC", "Noto Serif CJK SC", var(--serif);
         }
     </style>
-    <script
-        type="application/ld+json">{ "@context": "http://schema.org", "@type": "WebSite", "author": { "@type": "Person", "name": "Qingxu", "image": { "@type": "ImageObject", "url": "https://blog.linioi.com/hotlink-ok/images/avatar.jpg" }, "description": "人生如逆旅，我亦是行人" }, "url": "https://linioi.com", "logo": "https://blog.linioi.com/hotlink-ok/images/avatar.jpg", "image": { "@type": "ImageObject", "url": "https://blog.linioi.com/hotlink-ok/images/avatar.jpg" }, "mainEntityOfPage": { "@type": "WebPage", "@id": "https://linioi.com" }, "keywords": "Qingxu, RimuruW, 清絮, @RimuruW, Home, 个人主页", "description": "Qingxu's Home —— Qingxu (@RimuruW) 的小窝", "sameAs": [ "https://github.com/RimuruW", "https://twitter.com/Hikolary", "https://t.me/Qingxu_talk"] }</script>
-    </script>
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="container">
-            <div class="profile">
-                <div class="meta"><img class="avatar" src="https://blog.linioi.com/hotlink-ok/images/avatar.jpg">
-                    <h1>Qingxu</h1>
-                    <div class="position">Student</div>
+    <main class="page">
+        <header class="reveal">
+            <img class="avatar" src="https://blog.linioi.com/hotlink-ok/images/avatar.jpg"
+                alt="Qingxu's portrait" width="78" height="78" loading="eager">
+            <div class="id">
+                <h1 class="name">Qingxu</h1>
+                <div class="handle">@RimuruW<span class="sep">·</span>清絮<span class="sep">·</span>Wuhan</div>
+            </div>
+        </header>
+
+        <p class="lede reveal">
+            I study how states govern and societies hold together.
+            How they <span class="hl">are</span>, and how they
+            <span class="hl">ought to be</span>.
+        </p>
+
+        <p class="intro reveal">
+            Political theory is where I start. Economics gives me the tools: the models, the
+            econometric methods to test an idea, a way of seeing. Most days I read, or run the
+            numbers behind what I read. The rest of my time goes to open source and the Linux
+            ecosystem I live in and contribute to, a camera, and whatever I want to learn next.
+        </p>
+
+        <section class="facets reveal">
+            <div class="facet">
+                <h2>Reading</h2>
+                <p>Governance and social order, from <span class="key">Hobbes and Rawls</span> to
+                    the question of what a just political order would even look like.</p>
+            </div>
+            <div class="facet">
+                <h2>Researching</h2>
+                <p>Taking those questions to the data with
+                    <span class="key">R, Stata, and Python</span>, and staying honest about what the
+                    numbers will and will not say.</p>
+            </div>
+            <div class="facet">
+                <h2>Building</h2>
+                <p>Open-source tools and a self-hosted agent. I live in the Linux ecosystem, tinker
+                    with Arch, and give back where I can.</p>
+                <div class="tags">
+                    <span class="tag">R</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">Linux</span>
                 </div>
-                <div class="overlay"></div>
             </div>
-            <div class="portfolio">
-                <p><strong>I want …</strong></p>
-                <ul>
-                    <li>
-                        <p>Learn everything I want to learn</p>
-                    </li>
-                    <li>
-                        <p>Find beauty in ordinary life</p>
-                    </li>
-                    <li>
-                        <p>Walk on the fallen leaves with the one I love</p>
-                    </li>
-                    <li>
-                        <p>Kiss the sky and the lake</p>
-                    </li>
-                </ul>
-                <p>and so on ...</p>
-                <div class="social"><a class="tooltip" title="GitHub" href="https://github.com/RimuruW" target="_blank"
-                        rel="external noopenner noreferrer nofollow"><i><svg xmlns="http://www.w3.org/2000/svg"
-                                aria-hidden="true" data-icon="github" data-prefix="fab" width="20px" height="20px"
-                                viewBox="0 0 496 512">
-                                <defs />
-                                <path fill="currentColor"
-                                    d="M166 397c0 2-2 4-5 4-4 0-6-1-6-4 0-2 2-3 5-3 3-1 6 1 6 3zm-31-4c-1 2 1 4 4 5s6 0 6-2-1-5-4-5c-3-1-5 0-6 2zm44-2c-3 1-5 3-5 5 1 2 3 3 6 3 3-1 5-3 5-5s-3-3-6-3zM245 8A240 240 0 000 252a251 251 0 00170 239c12 2 17-5 17-12v-61s-70 15-85-30c0 0-12-29-28-37 0 0-23-15 2-15 0 0 24 2 38 26 22 38 59 27 73 21 2-16 9-28 16-34-56-6-112-14-112-111 0-27 7-41 23-59a95 95 0 013-67c21-7 69 27 69 27a235 235 0 01126 0s48-34 69-27a94 94 0 012 67c16 18 26 32 26 59 0 97-59 105-115 111 9 8 17 23 17 46v84c0 6 5 14 17 12a248 248 0 00168-239C496 113 384 8 245 8zM97 353c-1 1-1 3 1 5 1 2 4 2 5 1s1-3-1-5c-1-2-4-2-5-1zm-11-8l3 4c1 1 3 0 4-1s0-3-2-4-4 0-5 1zm33 35c-2 2-1 5 1 7s5 2 7 1c1-2 0-5-2-7s-5-2-6-1zm-12-14v6c2 2 5 3 6 2 2-1 2-4 0-6-1-3-4-4-6-2z" />
-                            </svg></i></a><a class="tooltip" title="Blog" href="https://blog.linioi.com/"
-                        target="_blank" rel="external noopenner noreferrer nofollow"><i><svg
-                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-icon="typewriter"
-                                data-prefix="fad" width="20px" height="20px" viewBox="0 0 512 512">
-                                <defs />
-                                <g>
-                                    <path fill="currentColor"
-                                        d="M368 96a16 16 0 01-16-16V0H88a24 24 0 00-24 24v168h83a32 32 0 0122 9l14 14a32 32 0 0022 9h102a32 32 0 0022-9l14-14a32 32 0 0122-9h83V96z"
-                                        opacity=".4" />
-                                    <path fill="currentColor"
-                                        d="M368 96h80v-5a18 18 0 00-5-12L369 5a18 18 0 00-12-5h-5v80a16 16 0 0016 16zm112 96H365a32 32 0 00-22 9l-14 14a32 32 0 01-22 9H205a32 32 0 01-22-9l-14-14a32 32 0 00-22-9H32a32 32 0 00-32 32v32a32 32 0 0032 32v160a64 64 0 0064 64h320a64 64 0 0064-64V288a32 32 0 0032-32v-32a32 32 0 00-32-32zM336 296a8 8 0 018-8h16a8 8 0 018 8v16a8 8 0 01-8 8h-16a8 8 0 01-8-8zm-24 56h16a8 8 0 018 8v16a8 8 0 01-8 8h-16a8 8 0 01-8-8v-16a8 8 0 018-8zm-40-56a8 8 0 018-8h16a8 8 0 018 8v16a8 8 0 01-8 8h-16a8 8 0 01-8-8zm-24 56h16a8 8 0 018 8v16a8 8 0 01-8 8h-16a8 8 0 01-8-8v-16a8 8 0 018-8zm-40-56a8 8 0 018-8h16a8 8 0 018 8v16a8 8 0 01-8 8h-16a8 8 0 01-8-8zm-24 56h16a8 8 0 018 8v16a8 8 0 01-8 8h-16a8 8 0 01-8-8v-16a8 8 0 018-8zm-40-56a8 8 0 018-8h16a8 8 0 018 8v16a8 8 0 01-8 8h-16a8 8 0 01-8-8zm-40 24H88a8 8 0 01-8-8v-16a8 8 0 018-8h16a8 8 0 018 8v16a8 8 0 01-8 8zm32 64h-16a8 8 0 01-8-8v-16a8 8 0 018-8h16a8 8 0 018 8v16a8 8 0 01-8 8zm232 56a8 8 0 01-8 8H152a8 8 0 01-8-8v-16a8 8 0 018-8h208a8 8 0 018 8zm32-64a8 8 0 01-8 8h-16a8 8 0 01-8-8v-16a8 8 0 018-8h16a8 8 0 018 8zm32-64a8 8 0 01-8 8h-16a8 8 0 01-8-8v-16a8 8 0 018-8h16a8 8 0 018 8z" />
-                                </g>
-                            </svg></i></a><a class="tooltip" title="Telegram" href="https://t.me/Qingxu_talk"
-                        target="_blank" rel="external noopenner noreferrer nofollow"><i><svg
-                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-icon="telegram-plane"
-                                data-prefix="fab" width="20px" height="20px" viewBox="0 0 448 512">
-                                <defs />
-                                <path fill="currentColor"
-                                    d="M447 99l-68 318c-5 23-18 28-37 18l-103-76-50 48c-5 5-10 10-21 10l8-105 191-172c8-8-2-12-13-5L118 284 16 252c-22-7-22-22 5-33L418 67c19-6 35 5 29 33z" />
-                            </svg></i></a><a class="tooltip" title="Twitter" href="https://twitter.com/Hikolary"
-                        target="_blank" rel="external noopenner noreferrer nofollow"><i><svg
-                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-icon="twitter"
-                                data-prefix="fab" width="20px" height="20px" viewBox="0 0 512 512">
-                                <defs />
-                                <path fill="currentColor"
-                                    d="M459.4 151.7c.3 4.6.3 9.1.3 13.7 0 138.7-105.6 298.5-298.6 298.5A296.5 296.5 0 010 417a217 217 0 0025.3 1.2c49 0 94.3-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8a111 111 0 0047.4-2 105 105 0 01-84.1-103v-1.2c14 7.8 30.2 12.6 47.4 13.3A104.9 104.9 0 0135.7 67.2a298.3 298.3 0 00216.4 109.9 104.9 104.9 0 01179-95.8 206.6 206.6 0 0066.6-25.4 104.7 104.7 0 01-46.1 57.8c21-2.3 41.6-8.1 60.4-16.2a225.6 225.6 0 01-52.6 54.2z" />
-                            </svg></i></a><a class="tooltip" title="Email" href="mailto:me@linioi.com"><i><svg
-                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="20px" height="20px"
-                                viewBox="0 0 512 512">
-                                <defs />
-                                <path fill="currentColor"
-                                    d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z" />
-                            </svg></i></a></div>
+            <div class="facet">
+                <h2>Off the clock</h2>
+                <p>A camera, music, and games I lose hours to, grand strategy and RPGs alike. Always
+                    looking for the small ordinary beauty everyday life keeps handing over.</p>
             </div>
-        </div>
-        <div class="footer text-center fadeIn">Based on <a href="https://skk.moe" class="label">Sukka's</a></div>
-    </div>
-    <script>document.addEventListener("DOMContentLoaded", function () { document.getElementsByClassName("container")[0].classList.add("fadeIn") })</script>
+        </section>
+
+        <nav class="links reveal" aria-label="Find me elsewhere">
+            <a class="link" href="https://github.com/RimuruW" target="_blank"
+                rel="me external noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" aria-hidden="true" fill="currentColor">
+                    <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8z" />
+                </svg>
+                GitHub
+            </a>
+            <a class="link" href="https://blog.linioi.com/" target="_blank"
+                rel="me external noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true" fill="currentColor">
+                    <path d="M497 142c-9-9-21-14-34-14-13 0-25 5-34 14L213 263c-3 3-6 7-7 11l-21 64c-2 6 0 13 4 17 3 3 8 5 12 5 2 0 4 0 6-1l64-21c4-1 8-4 11-7l216-216c19-19 19-49 0-68zM192 64H72C32 64 0 96 0 136v304c0 40 32 72 72 72h304c40 0 72-32 72-72V320c0-13-11-24-24-24s-24 11-24 24v120c0 13-11 24-24 24H72c-13 0-24-11-24-24V136c0-13 11-24 24-24h120c13 0 24-11 24-24s-11-24-24-24z" />
+                </svg>
+                Blog
+            </a>
+            <a class="link" href="https://twitter.com/RimuruW" target="_blank"
+                rel="me external noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true" fill="currentColor">
+                    <path d="M389 48h70L307 222l180 238H347L237 316 111 460H40l163-186L31 48h144l99 131zm-25 371h39L160 87h-42z" />
+                </svg>
+                X / Twitter
+            </a>
+            <a class="link" href="mailto:me@linioi.com" rel="me">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true" fill="currentColor">
+                    <path d="M502 191c4-3 10 0 10 5v204c0 27-21 48-48 48H48c-27 0-48-21-48-48V196c0-5 6-8 10-5 22 17 52 39 154 113 21 16 57 48 92 48s71-32 92-48c102-74 132-96 154-113zM256 320c23 0 56-29 73-41 132-96 143-105 173-129 6-4 9-11 9-19v-19c0-27-21-48-48-48H48C21 64 0 85 0 112v19c0 8 3 15 9 19 31 24 41 33 173 129 17 12 50 41 74 41z" />
+                </svg>
+                Email
+            </a>
+        </nav>
+
+        <footer class="reveal">
+            <span class="zh">人生如逆旅，我亦是行人。</span>
+        </footer>
+    </main>
+
+    <script>
+        // Staggered reveal on load; reduced-motion handled in CSS.
+        document.addEventListener("DOMContentLoaded", function () {
+            var items = document.querySelectorAll(".reveal");
+            items.forEach(function (el, i) {
+                setTimeout(function () {
+                    el.classList.add("in");
+                }, 120 + i * 130);
+            });
+        });
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Qingxu",
+        "alternateName": "RimuruW",
+        "url": "https://linioi.com",
+        "image": "https://blog.linioi.com/hotlink-ok/images/avatar.jpg",
+        "description": "Studying politics and economics, working with data and open source.",
+        "knowsAbout": ["Political Science", "Political Philosophy", "Economics", "Open Source", "Linux"],
+        "sameAs": [
+            "https://github.com/RimuruW",
+            "https://twitter.com/RimuruW",
+            "https://blog.linioi.com/"
+        ]
+    }
+    </script>
 </body>
 
 </html>
